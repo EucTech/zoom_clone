@@ -1,9 +1,11 @@
 "use client";
 import { useCall, useCallStateHooks } from "@stream-io/video-react-sdk";
 import React from "react";
+import { Button } from "./ui/button";
 
 const EndCallButton = () => {
   const call = useCall();
+  const router
 
   const { useLocalParticipant } = useCallStateHooks();
 
@@ -17,9 +19,11 @@ const EndCallButton = () => {
     if (!isMeetingOwner) return null;
 
   return (
-  <div>EndCallButton
+  <Button onClick={async () => {
+    await call.endCall();
+  }} >
 
-  </div>
+  </Button>
 );
 };
 
